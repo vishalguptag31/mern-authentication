@@ -6,7 +6,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
-const Signin = () => {
+const Signin = ({ history }) => {
   const [values, setValues] = useState({
     email: "vishal.subscribe31@gmail.com",
     password: "123456",
@@ -38,10 +38,10 @@ const Signin = () => {
             password: "",
             buttonText: "Submitted"
           });
-          toast.success(`Hey ${response.data.user.name}, Welcome back!`);
-          // isAuth() && isAuth().role === "admin"
-          //   ? history.push("/admin")
-          //   : history.push("/private");
+          // toast.success(`Hey ${response.data.user.name}, Welcome back!`);
+          isAuth() && isAuth().role === "admin"
+            ? history.push("/admin")
+            : history.push("/private");
         });
       })
       .catch(err => {
